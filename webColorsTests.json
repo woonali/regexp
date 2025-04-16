@@ -1,0 +1,22 @@
+{
+    "web-colors": [
+        {"color": "rgb(0,128,255)"},
+        {"color": "rgb(0%, 50%,100%)"},
+        {"color": "rgb(0, 0,0)"},
+        {"color": "rgb(-10, 50, 60)"},
+        {"color": "rgb(300, 128,255)"},
+        {"color": "rgb(255,50%, 100)"},
+        {"color": "#FFA07A"},
+        {"color": "#00ff00"},
+        {"color": "#F0A"},
+        {"color": "FFA07A"},
+        {"color": "#12345"},
+        {"color": "#12HHII"},
+        {"color": "hsl(120, 50%, 50%)"},
+        {"color": "hsl(0, 0%, 0%)"},
+        {"color": "hsl(360, 100%, 100%)"},
+        {"color": "hsl(400, 50%, 50%)"},
+        {"color": "hsl(200, 50, 50)"},
+        {"color": "hsl(red, green, blue)"}
+    ]
+}

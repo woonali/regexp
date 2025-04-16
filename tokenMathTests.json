@@ -1,0 +1,12 @@
+{
+    "math-expression": [
+        {"text": "sin(x) + cos(y) * 2.5"},
+        {"text": "pi                +    usO5NlMvU"},
+        {"text": "(       63393394.98  /8505          )"},
+        {"text": "tangent   + tan(x) * 45"},
+        {"text": "   - 5 +   ( -x ) "},
+        {"text": "pi_Number + eVal + ln10x"},
+        {"text": "exp_var  - lnVar - sqrtx "},
+        {"text": "exp(10)  - ln10 - sqrt2 "}
+    ]
+}
