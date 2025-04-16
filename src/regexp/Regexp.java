@@ -20,7 +20,7 @@ public class Regexp {
     static String GREEN = "\u001B[32m";
 
     public static void checkPasswords(){
-        System.out.println("Задача с проверкой пароля");
+        System.out.println("Р—Р°РґР°С‡Р° СЃ РїСЂРѕРІРµСЂРєРѕР№ РїР°СЂРѕР»СЏ");
         String fileName = "passwordsTests.json";
 
         try(BufferedReader reader = new BufferedReader(new FileReader(fileName))){
@@ -35,27 +35,27 @@ public class Regexp {
                 int countLower = 0, countUpper = 0, countDigit = 0;
                 Set<Character> specialChars = new HashSet<>();
 
-                if(passwordText.length() < 8) isValid = false;   //проверка на длину пароля
+                if(passwordText.length() < 8) isValid = false;   //РїСЂРѕРІРµСЂРєР° РЅР° РґР»РёРЅСѓ РїР°СЂРѕР»СЏ
                 
                 for(int k = 0; k < passwordText.length(); k++){
                     char currentChar = passwordText.charAt(k);
 
-                    if(k != 0 && currentChar == passwordText.charAt(k-1)){      //проверка на два одинаковых символа подряд
+                    if(k != 0 && currentChar == passwordText.charAt(k-1)){      //РїСЂРѕРІРµСЂРєР° РЅР° РґРІР° РѕРґРёРЅР°РєРѕРІС‹С… СЃРёРјРІРѕР»Р° РїРѕРґСЂСЏРґ
                         isValid = false;
                         hasRepeat = true;
                     }
 
-                    if(!((currentChar >= 'a' && currentChar <= 'z') || (currentChar >= 'A' && currentChar <= 'Z')    //проверка на латинские буквы
-                            || (currentChar >= '0' && currentChar <= '9')                                            // проверка на цифры
-                            || "^$%@#&*!?".indexOf(currentChar) != -1)){                                             // проверка на спецсимволы
+                    if(!((currentChar >= 'a' && currentChar <= 'z') || (currentChar >= 'A' && currentChar <= 'Z')    //РїСЂРѕРІРµСЂРєР° РЅР° Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹
+                            || (currentChar >= '0' && currentChar <= '9')                                            // РїСЂРѕРІРµСЂРєР° РЅР° С†РёС„СЂС‹
+                            || "^$%@#&*!?".indexOf(currentChar) != -1)){                                             // РїСЂРѕРІРµСЂРєР° РЅР° СЃРїРµС†СЃРёРјРІРѕР»С‹
                         isValid = false;
                         hasUnacceptableChar = true;
                     }
                     else{
-                        if(Character.isLowerCase(currentChar)) countLower++;      //считаем число маленьких латинских букв
-                        else if(Character.isUpperCase(currentChar)) countUpper++; //считаем число больших латинских букв
-                        else if(Character.isDigit(currentChar)) countDigit++;     //считаем число цифр в строке
-                        else if("^$%@#&*!?".indexOf(currentChar) != -1) specialChars.add(currentChar);  //добавляем в массив встреченные символы
+                        if(Character.isLowerCase(currentChar)) countLower++;      //СЃС‡РёС‚Р°РµРј С‡РёСЃР»Рѕ РјР°Р»РµРЅСЊРєРёС… Р»Р°С‚РёРЅСЃРєРёС… Р±СѓРєРІ
+                        else if(Character.isUpperCase(currentChar)) countUpper++; //СЃС‡РёС‚Р°РµРј С‡РёСЃР»Рѕ Р±РѕР»СЊС€РёС… Р»Р°С‚РёРЅСЃРєРёС… Р±СѓРєРІ
+                        else if(Character.isDigit(currentChar)) countDigit++;     //СЃС‡РёС‚Р°РµРј С‡РёСЃР»Рѕ С†РёС„СЂ РІ СЃС‚СЂРѕРєРµ
+                        else if("^$%@#&*!?".indexOf(currentChar) != -1) specialChars.add(currentChar);  //РґРѕР±Р°РІР»СЏРµРј РІ РјР°СЃСЃРёРІ РІСЃС‚СЂРµС‡РµРЅРЅС‹Рµ СЃРёРјРІРѕР»С‹
                     }
                 }
                 
@@ -63,27 +63,27 @@ public class Regexp {
                 
                 System.out.println(passwordText);
                 if(!isValid){
-                    String error = "Пароль должен быть от 8 символов, без повторяющихся символов подряд, включать заглавные и строчные латинские буквы, цифры, два разных спецсимвола (^$%@#&*!?).";
+                    String error = "РџР°СЂРѕР»СЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РѕС‚ 8 СЃРёРјРІРѕР»РѕРІ, Р±РµР· РїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ СЃРёРјРІРѕР»РѕРІ РїРѕРґСЂСЏРґ, РІРєР»СЋС‡Р°С‚СЊ Р·Р°РіР»Р°РІРЅС‹Рµ Рё СЃС‚СЂРѕС‡РЅС‹Рµ Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹, С†РёС„СЂС‹, РґРІР° СЂР°Р·РЅС‹С… СЃРїРµС†СЃРёРјРІРѕР»Р° (^$%@#&*!?).";
                     
-                    if(hasUnacceptableChar) error = "Пароль должен содержать только латинские буквы, цифры и указанные спецсимволы (^$%@#&*!?).";
+                    if(hasUnacceptableChar) error = "РџР°СЂРѕР»СЊ РґРѕР»Р¶РµРЅ СЃРѕРґРµСЂР¶Р°С‚СЊ С‚РѕР»СЊРєРѕ Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹, С†РёС„СЂС‹ Рё СѓРєР°Р·Р°РЅРЅС‹Рµ СЃРїРµС†СЃРёРјРІРѕР»С‹ (^$%@#&*!?).";
                     else{
-                        if (passwordText.length() >= 8) error = error.replace(" от 8 символов,", "");
-                                if (!hasRepeat) error = error.replace(" без повторяющихся символов подряд,", "");
-                                if (countUpper > 0 && countLower == 0) error = error.replace(" заглавные и", "");
-                                if (countLower > 0 && countUpper == 0) error = error.replace(" и строчные", "");
-                                if (countUpper > 0 && countLower > 0) error = error.replace(" заглавные и строчные латинские буквы,", "");                                
-                                if (countDigit > 0) error = error.replace(", цифры", "").replace(" цифры,", "");
-                                if (specialChars.size() > 1) error = error.replace(", два разных спецсимвола (^$%@#&*!?)", "").replace(" два разных спецсимвола (^$%@#&*!?)", "");
+                        if (passwordText.length() >= 8) error = error.replace(" РѕС‚ 8 СЃРёРјРІРѕР»РѕРІ,", "");
+                                if (!hasRepeat) error = error.replace(" Р±РµР· РїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ СЃРёРјРІРѕР»РѕРІ РїРѕРґСЂСЏРґ,", "");
+                                if (countUpper > 0 && countLower == 0) error = error.replace(" Р·Р°РіР»Р°РІРЅС‹Рµ Рё", "");
+                                if (countLower > 0 && countUpper == 0) error = error.replace(" Рё СЃС‚СЂРѕС‡РЅС‹Рµ", "");
+                                if (countUpper > 0 && countLower > 0) error = error.replace(" Р·Р°РіР»Р°РІРЅС‹Рµ Рё СЃС‚СЂРѕС‡РЅС‹Рµ Р»Р°С‚РёРЅСЃРєРёРµ Р±СѓРєРІС‹,", "");                                
+                                if (countDigit > 0) error = error.replace(", С†РёС„СЂС‹", "").replace(" С†РёС„СЂС‹,", "");
+                                if (specialChars.size() > 1) error = error.replace(", РґРІР° СЂР°Р·РЅС‹С… СЃРїРµС†СЃРёРјРІРѕР»Р° (^$%@#&*!?)", "").replace(" РґРІР° СЂР°Р·РЅС‹С… СЃРїРµС†СЃРёРјРІРѕР»Р° (^$%@#&*!?)", "");
                             }
                     
-                    if(error.endsWith(", включать.")){
-                        error = error.replace(", включать", "");
+                    if(error.endsWith(", РІРєР»СЋС‡Р°С‚СЊ.")){
+                        error = error.replace(", РІРєР»СЋС‡Р°С‚СЊ", "");
                     }
-                    error = error.replace("быть включать", "включать");
+                    error = error.replace("Р±С‹С‚СЊ РІРєР»СЋС‡Р°С‚СЊ", "РІРєР»СЋС‡Р°С‚СЊ");
                     
                     System.out.println(RED + error + RESET);
                 }
-                else System.out.println(GREEN + "Пароль корректен" + RESET);
+                else System.out.println(GREEN + "РџР°СЂРѕР»СЊ РєРѕСЂСЂРµРєС‚РµРЅ" + RESET);
                 
                 System.out.println("----------------------------------");
             }
@@ -94,7 +94,7 @@ public class Regexp {
     }
 
     public static void checkWebColors(){
-        System.out.println("Задача с проверкой web-цвета");
+        System.out.println("Р—Р°РґР°С‡Р° СЃ РїСЂРѕРІРµСЂРєРѕР№ web-С†РІРµС‚Р°");
         String fileName = "webColorsTests.json";
         
         String regex = ""
@@ -115,16 +115,16 @@ public class Regexp {
 
                 System.out.println(textOfColor);
                 if(!isValid){
-                    String error = "Формат указан неверно.\n";
+                    String error = "Р¤РѕСЂРјР°С‚ СѓРєР°Р·Р°РЅ РЅРµРІРµСЂРЅРѕ.\n";
                     
-                    if(textOfColor.startsWith("rgb")) error += "rgb(r, g, b), где \"r, g, b\" задается тремя числами: либо целыми значениями от 0 до 255, либо процентными значениями от 0% до 100%, перечисленными через запятую.";
-                    else if(textOfColor.startsWith("#")) error += "Hex-код цвета (#rrggbb) — шестнадцатеричное представление RGB, начинающееся с символа #, где каждая пара цифр отвечает за красный, зелёный и синий каналы. Также допускается сокращённая форма: #rgb.";
-                    else if(textOfColor.startsWith("hsl")) error += "HSL (цвет в формате hsl(h, s, l)) записывается похожим образом на RGB. Тон (h) — целое число от 0 до 360, насыщенность (s) и светлота (l) — процентные значения от 0% до 100%.";
-                    else error += "Строка не соответствует ни одному из допустимых вариантов форматов web-цвета(rgb(r, g, b), #rrggbb, hsl(h, s, l)).";
+                    if(textOfColor.startsWith("rgb")) error += "rgb(r, g, b), РіРґРµ \"r, g, b\" Р·Р°РґР°РµС‚СЃСЏ С‚СЂРµРјСЏ С‡РёСЃР»Р°РјРё: Р»РёР±Рѕ С†РµР»С‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё РѕС‚ 0 РґРѕ 255, Р»РёР±Рѕ РїСЂРѕС†РµРЅС‚РЅС‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё РѕС‚ 0% РґРѕ 100%, РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹РјРё С‡РµСЂРµР· Р·Р°РїСЏС‚СѓСЋ.";
+                    else if(textOfColor.startsWith("#")) error += "Hex-РєРѕРґ С†РІРµС‚Р° (#rrggbb) вЂ” С€РµСЃС‚РЅР°РґС†Р°С‚РµСЂРёС‡РЅРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ RGB, РЅР°С‡РёРЅР°СЋС‰РµРµСЃСЏ СЃ СЃРёРјРІРѕР»Р° #, РіРґРµ РєР°Р¶РґР°СЏ РїР°СЂР° С†РёС„СЂ РѕС‚РІРµС‡Р°РµС‚ Р·Р° РєСЂР°СЃРЅС‹Р№, Р·РµР»С‘РЅС‹Р№ Рё СЃРёРЅРёР№ РєР°РЅР°Р»С‹. РўР°РєР¶Рµ РґРѕРїСѓСЃРєР°РµС‚СЃСЏ СЃРѕРєСЂР°С‰С‘РЅРЅР°СЏ С„РѕСЂРјР°: #rgb.";
+                    else if(textOfColor.startsWith("hsl")) error += "HSL (С†РІРµС‚ РІ С„РѕСЂРјР°С‚Рµ hsl(h, s, l)) Р·Р°РїРёСЃС‹РІР°РµС‚СЃСЏ РїРѕС…РѕР¶РёРј РѕР±СЂР°Р·РѕРј РЅР° RGB. РўРѕРЅ (h) вЂ” С†РµР»РѕРµ С‡РёСЃР»Рѕ РѕС‚ 0 РґРѕ 360, РЅР°СЃС‹С‰РµРЅРЅРѕСЃС‚СЊ (s) Рё СЃРІРµС‚Р»РѕС‚Р° (l) вЂ” РїСЂРѕС†РµРЅС‚РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РѕС‚ 0% РґРѕ 100%.";
+                    else error += "РЎС‚СЂРѕРєР° РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РЅРё РѕРґРЅРѕРјСѓ РёР· РґРѕРїСѓСЃС‚РёРјС‹С… РІР°СЂРёР°РЅС‚РѕРІ С„РѕСЂРјР°С‚РѕРІ web-С†РІРµС‚Р°(rgb(r, g, b), #rrggbb, hsl(h, s, l)).";
                     
                     System.out.println(RED + error + RESET);
                 }
-                else System.out.println(GREEN + "Web-цвет корректен" + RESET);
+                else System.out.println(GREEN + "Web-С†РІРµС‚ РєРѕСЂСЂРµРєС‚РµРЅ" + RESET);
                 
                 System.out.println("----------------------------------");
             }
@@ -135,7 +135,7 @@ public class Regexp {
     }
 
     public static void tokenMathsExpression(){
-        System.out.println("Задача с токенизацией математического выражения");
+        System.out.println("Р—Р°РґР°С‡Р° СЃ С‚РѕРєРµРЅРёР·Р°С†РёРµР№ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕРіРѕ РІС‹СЂР°Р¶РµРЅРёСЏ");
         String fileName = "tokenMathTests.json";
         
         String numberRegex = "\\b(\\d+(\\.\\d+)?)\\b";
@@ -184,7 +184,7 @@ public class Regexp {
     }
 
     public static void checkDate(){
-        System.out.println("Проверка корректности даты");
+        System.out.println("РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РґР°С‚С‹");
         String fileName = "datesTests.json";
 
         try(BufferedReader reader = new BufferedReader(new FileReader(fileName))){
@@ -214,13 +214,13 @@ public class Regexp {
                     }
                     default -> {
                         isValid = false;
-                        error = "Невозможно определить формат даты. Убедитесь, что введённая строка содержит корректную дату.";
+                        error = "РќРµРІРѕР·РјРѕР¶РЅРѕ РѕРїСЂРµРґРµР»РёС‚СЊ С„РѕСЂРјР°С‚ РґР°С‚С‹. РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ РІРІРµРґС‘РЅРЅР°СЏ СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶РёС‚ РєРѕСЂСЂРµРєС‚РЅСѓСЋ РґР°С‚Сѓ.";
                     }
                 }
                     
                 System.out.println(textOfDate);
                 if(!isValid) System.out.println(RED + error + RESET);
-                else System.out.println(GREEN + "Дата корректна" + RESET);
+                else System.out.println(GREEN + "Р”Р°С‚Р° РєРѕСЂСЂРµРєС‚РЅР°" + RESET);
                 
                 System.out.println("----------------------------------");
             }
@@ -254,16 +254,16 @@ public class Regexp {
     }    
 
     public static String isValidDate(int day, int month, int year) {
-        if (year <= 0) return "Год должен быть больше 0.";
+        if (year <= 0) return "Р“РѕРґ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 0.";
 
-        if (month < 1 || month > 12) return "Месяц должен быть в диапазоне от 1 до 12.";
+        if (month < 1 || month > 12) return "РњРµСЃСЏС† РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 1 РґРѕ 12.";
 
         int[] days = new int[]{31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int maxDays = days[month - 1];
 
-        if (day < 1 || day > maxDays) return "День должен быть в диапазоне от 1 до " + maxDays + " для месяца " + month + ".";
+        if (day < 1 || day > maxDays) return "Р”РµРЅСЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 1 РґРѕ " + maxDays + " РґР»СЏ РјРµСЃСЏС†Р° " + month + ".";
 
-        return ""; // Если ошибок нет, возвращаем пустую строку
+        return ""; // Р•СЃР»Рё РѕС€РёР±РѕРє РЅРµС‚, РІРѕР·РІСЂР°С‰Р°РµРј РїСѓСЃС‚СѓСЋ СЃС‚СЂРѕРєСѓ
     }
 
     
@@ -277,7 +277,7 @@ public class Regexp {
 
         if (parts.length != 3 || !isNumeric(parts[0]) || !isNumeric(parts[1]) || !isNumeric(parts[2])) {
             separator = separator.replace("\\", "");
-            return "Ожидается формат 'дд" + separator + "мм" + separator + "гггг' или 'гггг" + separator + "мм" + separator + "дд'.";
+            return "РћР¶РёРґР°РµС‚СЃСЏ С„РѕСЂРјР°С‚ 'РґРґ" + separator + "РјРј" + separator + "РіРіРіРі' РёР»Рё 'РіРіРіРі" + separator + "РјРј" + separator + "РґРґ'.";
         }
 
         int day = Integer.parseInt(parts[0]);
@@ -285,33 +285,33 @@ public class Regexp {
         int year = Integer.parseInt(parts[2]);
 
         String error = isValidDate(day, month, year);
-        if (error.isEmpty()) return ""; // Первый вариант верный
+        if (error.isEmpty()) return ""; // РџРµСЂРІС‹Р№ РІР°СЂРёР°РЅС‚ РІРµСЂРЅС‹Р№
 
         error = isValidDate(year, month, day);
-        if (error.isEmpty()) return ""; // Второй вариант верный
+        if (error.isEmpty()) return ""; // Р’С‚РѕСЂРѕР№ РІР°СЂРёР°РЅС‚ РІРµСЂРЅС‹Р№
 
-        // Если оба варианта неверны, возвращаем первую ошибку
-        return "Некорректная цифровая дата. " + error;
+        // Р•СЃР»Рё РѕР±Р° РІР°СЂРёР°РЅС‚Р° РЅРµРІРµСЂРЅС‹, РІРѕР·РІСЂР°С‰Р°РµРј РїРµСЂРІСѓСЋ РѕС€РёР±РєСѓ
+        return "РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ С†РёС„СЂРѕРІР°СЏ РґР°С‚Р°. " + error;
     }
 
     public static String validateRussianDate(String textOfDate) {
-        List<String> rusMonths = Arrays.asList("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря");
+        List<String> rusMonths = Arrays.asList("СЏРЅРІР°СЂСЏ", "С„РµРІСЂР°Р»СЏ", "РјР°СЂС‚Р°", "Р°РїСЂРµР»СЏ", "РјР°СЏ", "РёСЋРЅСЏ", "РёСЋР»СЏ", "Р°РІРіСѓСЃС‚Р°", "СЃРµРЅС‚СЏР±СЂСЏ", "РѕРєС‚СЏР±СЂСЏ", "РЅРѕСЏР±СЂСЏ", "РґРµРєР°Р±СЂСЏ");
 
         String[] parts = textOfDate.split(" ");
         if (parts.length != 3 || !isNumeric(parts[0]) || !isNumeric(parts[2])) {
-            return "Ожидается формат 'день месяц_по_русски год' (например, 20 января 1806).";
+            return "РћР¶РёРґР°РµС‚СЃСЏ С„РѕСЂРјР°С‚ 'РґРµРЅСЊ РјРµСЃСЏС†_РїРѕ_СЂСѓСЃСЃРєРё РіРѕРґ' (РЅР°РїСЂРёРјРµСЂ, 20 СЏРЅРІР°СЂСЏ 1806).";
         }
 
         int day = Integer.parseInt(parts[0]);
         int month = rusMonths.indexOf(parts[1].toLowerCase()) + 1;
         int year = Integer.parseInt(parts[2]);
 
-        if (month == 0) return "Неверное название месяца: " + parts[1];
+        if (month == 0) return "РќРµРІРµСЂРЅРѕРµ РЅР°Р·РІР°РЅРёРµ РјРµСЃСЏС†Р°: " + parts[1];
 
         String error = isValidDate(day, month, year);
-        if (!error.isEmpty()) return "Некорректная русская дата. " + error;
+        if (!error.isEmpty()) return "РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ СЂСѓСЃСЃРєР°СЏ РґР°С‚Р°. " + error;
 
-        return ""; // Если ошибок нет
+        return ""; // Р•СЃР»Рё РѕС€РёР±РѕРє РЅРµС‚
     }
 
     public static String validateEnglishDate(String textOfDate) {
@@ -320,7 +320,7 @@ public class Regexp {
 
         String[] parts = textOfDate.split(",");
         if (parts.length != 2) {
-            return "Ожидается формат 'January 14, 2023' или '2023, January 14'.";
+            return "РћР¶РёРґР°РµС‚СЃСЏ С„РѕСЂРјР°С‚ 'January 14, 2023' РёР»Рё '2023, January 14'.";
         }
 
         int day = -1, month = -1, year = -1;
@@ -330,19 +330,19 @@ public class Regexp {
         if (firstPart.length == 2 && isNumeric(firstPart[1]) && isNumeric(parts[1].trim())) {
             day = Integer.parseInt(firstPart[1]);
             month = engMonths.indexOf(firstPart[0]) % 12 + 1;
-            if (month == 0) return "Неверное название месяца: " + firstPart[0];
+            if (month == 0) return "РќРµРІРµСЂРЅРѕРµ РЅР°Р·РІР°РЅРёРµ РјРµСЃСЏС†Р°: " + firstPart[0];
             year = Integer.parseInt(parts[1].trim());
         } else if (secondPart.length == 2 && isNumeric(secondPart[1]) && isNumeric(parts[0].trim())) {
             day = Integer.parseInt(secondPart[1]);
             month = engMonths.indexOf(secondPart[0]) % 12 + 1;
-            if (month == 0) return "Неверное название месяца: " + secondPart[0];
+            if (month == 0) return "РќРµРІРµСЂРЅРѕРµ РЅР°Р·РІР°РЅРёРµ РјРµСЃСЏС†Р°: " + secondPart[0];
             year = Integer.parseInt(parts[0].trim());
-        } else return "Ожидается формат 'January 14, 2023' или '2023, January 14'.";
+        } else return "РћР¶РёРґР°РµС‚СЃСЏ С„РѕСЂРјР°С‚ 'January 14, 2023' РёР»Рё '2023, January 14'.";
 
         String error = isValidDate(day, month, year);
-        if (!error.isEmpty()) return "Некорректная английская дата. " + error;
+        if (!error.isEmpty()) return "РќРµРєРѕСЂСЂРµРєС‚РЅР°СЏ Р°РЅРіР»РёР№СЃРєР°СЏ РґР°С‚Р°. " + error;
 
-        return ""; // Если ошибок нет
+        return ""; // Р•СЃР»Рё РѕС€РёР±РѕРє РЅРµС‚
     }
 
 
@@ -356,19 +356,19 @@ public class Regexp {
     }
 
     public static void returnToMain(){
-        System.out.println("Вернуться в главное меню?(y/n)");
+        System.out.println("Р’РµСЂРЅСѓС‚СЊСЃСЏ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ?(y/n)");
         String response = input.nextLine().trim().toLowerCase();
         if(!"y".equals(response)) System.exit(0);
     }
 
     public static void main(String[] args) {
         while(true){
-            System.out.println("\nВыберите задачу:");
-            System.out.println("1 - пароли");
-            System.out.println("2 - корректность web-цвета");
-            System.out.println("3 - токенизация математического выражения");
-            System.out.println("4 - корректность даты");
-            System.out.println("5 - выход из программы");
+            System.out.println("\nР’С‹Р±РµСЂРёС‚Рµ Р·Р°РґР°С‡Сѓ:");
+            System.out.println("1 - РїР°СЂРѕР»Рё");
+            System.out.println("2 - РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ web-С†РІРµС‚Р°");
+            System.out.println("3 - С‚РѕРєРµРЅРёР·Р°С†РёСЏ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕРіРѕ РІС‹СЂР°Р¶РµРЅРёСЏ");
+            System.out.println("4 - РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ РґР°С‚С‹");
+            System.out.println("5 - РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹");
 
             String choise = input.nextLine().trim();
 
@@ -379,7 +379,7 @@ public class Regexp {
                     case "4" -> checkDate();
                     case "5" -> System.exit(0);
                     default -> {
-                        System.out.println("\nНеверный ввод");
+                        System.out.println("\nРќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ");
                         break;
                     }
             }
